@@ -13,6 +13,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('login', 'AuthController@login')->name('login');
+Route::post('login', 'AuthController@postLogin')->name('post.login');
+
+Route::middleware('auth')->group(function (){
+    Route::get('/', 'DashboardController@index')->name('dashboard');
+    Route::resource('product', 'ProductController');
+    Route::resource('product-gallery', 'ProductGalleryController');
+
+    // logout
+    Route::post('logout', 'AuthController@logout')->name('logout');
 });
+
+
+// Route::get('/home', 'HomeController@index')->name('home');
+    // Auth::routes([
+    //     'register' => false
+    // ]);
