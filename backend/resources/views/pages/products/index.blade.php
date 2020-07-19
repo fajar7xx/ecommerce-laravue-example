@@ -49,6 +49,15 @@
                     </a>
                 </div>
                 @endif
+
+                <div class="card">
+                    <div class="card-body">
+                        <form action="{{ route('product.search') }}" method="GET">
+                            <input class="form-control form-control-lg" type="search" name="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-primary search-btn" type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
                 <div class="card">
                     <div class="campaign-table table-responsive">
                         <table class="table table-hover">
@@ -84,7 +93,7 @@
                                             <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end"
                                                 style="position: absolute; transform: translate3d(14px, 18px, 0px); top: 0px; left: 0px; will-change: transform;">
                                                 <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Product Galleries</a>
+                                                <a href="{{ route('product.gallery', $product->id) }}" class="dropdown-item">Product Galleries</a>
                                                 <!-- item-->
                                                 <a href="{{ route('product.edit', $product->id) }}" class="dropdown-item">Edit</a>
                                                 <!-- item-->

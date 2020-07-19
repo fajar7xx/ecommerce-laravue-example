@@ -45,7 +45,7 @@
                 <form method="POST" action="{{ route('post.login') }}" autocomplete="off">
                     @csrf
                     <div class="form-group">
-                        <input class="form-control form-control-lg" id="email" name="email" type="email" placeholder="Email" autocomplete="off">
+                        <input class="form-control form-control-lg" id="email" name="email" type="email" placeholder="Email" autocomplete="off" autofocus>
                     </div>
                     <div class="form-group">
                         <input class="form-control form-control-lg" id="password" name="password" type="password" placeholder="Password">

@@ -90,6 +90,7 @@ class ProductGalleryController extends Controller
      */
     public function destroy(ProductGallery $productGallery)
     {
-        //
+        $productGallery->delete();
+        return redirect()->route('product-gallery.index')->with('deleted', 'The product has been deleted');
     }
 }

@@ -22,7 +22,13 @@ Route::post('login', 'AuthController@postLogin')->name('post.login');
 
 Route::middleware('auth')->group(function (){
     Route::get('/', 'DashboardController@index')->name('dashboard');
+
+    Route::get('/product/search', 'ProductController@search')->name('product.search');
+    Route::get('/product/{id}/gallery', 'ProductController@gallery')->name('product.gallery');
+    Route::post('/products/getproduct', 'ProductController@getProducts')->name('product.getproducts');
     Route::resource('product', 'ProductController');
+
+
     Route::resource('product-gallery', 'ProductGalleryController');
 
     // logout

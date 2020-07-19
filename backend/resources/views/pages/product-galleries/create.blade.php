@@ -41,6 +41,7 @@
                             <div class="mb-3">
                                 <label for="product_id">Product Name <span class="text-danger">*</span></label>
                                 <select name="product_id" id="product_id" class="form-control @error('product_id') is-invalid @enderror select-box">
+
                                     <option value="">Select Product</option>
                                     @foreach ($products as $product)
                                         <option value="{{ $product->id }}">{{ $product->name }}</option>
@@ -102,9 +103,30 @@
 @push('scripts')
     <script src="/select2/dist/js/select2.full.min.js"></script>
     <script>
+        // CSRF Token
+        let CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
         // In your Javascript (external .js resource or <script> tag)
         $(document).ready(function () {
-            $('.select-box').select2();
+            $('#product_id').select2({
+            //     ajax: {
+            //         url: "{{ route('product.getproducts') }}",
+            //         type: "POST",
+            //         dataType: 'json',
+            //         delayType: 250,
+            //         data: function(params){
+            //             return{
+            //                 _token: "{{ csrf_token() }}",
+            //                 search: params.name
+            //             };
+            //         },
+            //         prosesResult: function(response){
+            //             return{
+            //                 result: response
+            //             };
+            //         },
+            //         cache: true
+            //     }
+            // });
         });
     </script>
 @endpush
