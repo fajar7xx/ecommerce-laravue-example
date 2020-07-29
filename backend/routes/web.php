@@ -31,6 +31,9 @@ Route::middleware('auth')->group(function (){
 
     Route::resource('product-gallery', 'ProductGalleryController');
 
+    Route::get('transaction/{id}/set-status', 'TransactionController@setStatus')->name('transaction.status');
+    Route::resource('transaction', 'TransactionController');
+
     // logout
     Route::post('logout', 'AuthController@logout')->name('logout');
 });

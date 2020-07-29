@@ -37,7 +37,7 @@
                                 Transaction
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#"><i class="fa fa-fw fa-user-circle"></i>Transaction Lists</a>
+                                <a class="nav-link" href="{{ route('transaction.index') }}"><i class="fa fa-fw fa-user-circle"></i>Transaction Lists</a>
                             </li>
                             {{-- <li class="nav-divider">
                                 Menu
